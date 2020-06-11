@@ -22,6 +22,8 @@ jobs:
         run: sed -i "s/version_tag/${GITHUB_REF#refs/tags/}/g" main/User_config.h
       - name: Run PlatformIO
         run: platformio run
+      - name: Prepare Release Assets
+        run: ./scripts/prepare_deploy.sh
       - name: Get upload url
         id: release-id
         run: |
