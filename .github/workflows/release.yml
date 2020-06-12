@@ -23,7 +23,9 @@ jobs:
       - name: Run PlatformIO
         run: platformio run
       - name: Prepare Release Assets
-        run: ./scripts/prepare_deploy.sh
+        run: |
+          sudo apt install rename
+          ./scripts/prepare_deploy.sh
       - name: Get upload url
         id: release-id
         run: |
